@@ -92,3 +92,6 @@ steps:
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', '3-connector-rest-apis/data/*', 'gs://${_DATAFLOW_COMPOSER_BUCKET}/data/']
   id: 'deploy-data'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
