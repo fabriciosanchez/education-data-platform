@@ -1,28 +1,23 @@
 {
-    "project_id": "{your-prefix}-drp",
-    "bucket": "{your-prefix}-drp-cs-0",
+    "project_id": "edp-fabri-demo-drp",
+    "bucket": "edp-fabri-demo-drp-cs-0",
     "api_path": "pipeline_api",
-    "location": "your-location",
-    "region": "your-gcp-region",
-    "api_uri": "https://{your-region}-{your-edp-prefix}-drp.cloudfunctions.net/{your-function-prefix}",
+    "location": "us-west1",
+    "region": "us-west1",
+    "api_uri": "https://us-west1-edp-fabri-demo-drp.cloudfunctions.net/edp-fabri-demo-api",
     "endpoints": [
         {
-            "url":"https://your-api-endpoint-1",
+            "url":"https://api.crossref.org/journals?query=pharmacy+health",
             "type": "json",
-            "blob": "your-api-folder/load"
+            "blob": "crossref/load"
         },
         {
-            "url":"https://your-api-endpoint-2",
+            "url":"https://chroniclingamerica.loc.gov/newspapers.json",
             "type": "json",
-            "blob": "your-api-folder/load"
-        },
-        {
-            "url":"https://your-api-endpoint-3",
-            "type": "json",
-            "blob": "{your-api-folder}/load"
+            "blob": "usnewspaper/load"
         }
     ],
-    "project_id_bq": "{your-prefix}-dwh-lnd",
-    "dataset_name": "your-dataset-name-for-api-ingestion",
+    "project_id_bq": "edp-fabri-demo-dwh-lnd",
+    "dataset_name": "edp-fabri-demo-dwh-lnd.edp_fabri_demo_dwh_lnd_bq_0",
     "retention_data": "172800"
 }
