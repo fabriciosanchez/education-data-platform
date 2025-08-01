@@ -23,24 +23,32 @@ from google.cloud import storage
 
 bucket_name = os.environ['BUCKET_ID']
 
+print("passou 01")
 def main(request):
+
+    print("passou 02")
 
     request_json = request.get_json()
     url = request_json['url']
     type_file = request_json['type']
     blob_from_config = request_json['blob']
 
+    print(url)
+    
     storage_client = storage.Client()
     source_bucket = storage_client.bucket(bucket_name)
 
     blob = source_bucket.get_blob(f"config/config.json")
 
+    print(blob)
+    
     read_output = blob.download_as_text()
     clean_data = json.loads(read_output)
     api_path = clean_data['api_path']
 
     if type_file == 'json':
         try:
+            print("passou aqui")
             response = requests.get(url)
 
             if response.status_code == 200:
@@ -56,6 +64,7 @@ def main(request):
                     content_type='application/json'
                 )
                 print('****** File Created:', blob_output)
+                printi('Passsou aqui')
 
         except Exception as e:
             print('****** Exception JSON:', e)
